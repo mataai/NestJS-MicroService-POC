@@ -1,0 +1,26 @@
+{
+  "name": "microservices-poc",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/microservices-poc/src",
+  "projectType": "application",
+  "tags": [],
+  "targets": {
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "dependsOn": ["build"],
+      "options": {
+        "buildTarget": "microservices-poc:build",
+        "runBuildTargetDependencies": false
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "microservices-poc:build:development"
+        },
+        "production": {
+          "buildTarget": "microservices-poc:build:production"
+        }
+      }
+    }
+  }
+}
